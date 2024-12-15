@@ -20,7 +20,7 @@ namespace CapaAccesoDatos
         #region metodos
         public SqlConnection Conectar()
         {
-            SqlConnection cn = new SqlConnection("Data Source=Boris_1\\SQLEXPRESS;Initial Catalog=DBFerreteria;Integrated Security=True");
+            SqlConnection cn = new SqlConnection("Data Source=DESKTOP - SQMIBPT\\BORIS;Initial Catalog=DBFerreteria;Integrated Security=True");
             return cn;
         }
         #endregion
