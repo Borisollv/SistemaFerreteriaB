@@ -6,7 +6,7 @@
 }
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Insertar Empleado</h1>
+    <h1 class="mt-4">Editar Empleado</h1>
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
@@ -16,7 +16,7 @@
             <form action="Editar" method="post">
                 <div class="row mb-3">
                     <div class="col-md-6">
-                        <input class="form-control" id="txtIdEmpleado" name="txtIdEmpleado" type="text" value="@Model.idEmpleado" hidden/>
+                        <input class="form-control" id="txtIdEmpleado" name="txtIdEmpleado" type="text" value="@Model.idEmpleado" hidden />
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control" id="txtNombres" name="txtNombres" type="text" placeholder="Nombres" value="@Model.nombres" />
                             <label for="txtNombres">Nombres</label>
@@ -32,64 +32,41 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtTipoDocumentoIdentidad" name="txtTipoDocumentoIdentidad" type="text" placeholder="Tipo de Documento Identidad" value="@Model.tipoDocumentoIdentidad"/>
-                            <label for="txtTipoDocumentoIdentidad">Tipo de Documento Identidad</label>
+                            <input class="form-control" id="txtDni" name="txtDni" type="text" placeholder="DNI" value="@Model.dni" />
+                            <label for="txtDni">DNI</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control" id="txtDocumentoIdentidad" name="txtDocumentoIdentidad" type="text" placeholder="Documento Identidad" value="@Model.documentoIdentidad"/>
-                            <label for="txtDocumentoIdentidad">Documento Identidad</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control" id="txtCelular" name="txtCelular" type="text" placeholder="Celular" value="@Model.celular" />
                             <label for="txtCelular">Celular</label>
                         </div>
                     </div>
+                </div>
+                <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
                             <input class="form-control" id="txtCorreo" name="txtCorreo" type="email" placeholder="Correo" value="@Model.correo" />
                             <label for="txtCorreo">Correo</label>
                         </div>
                     </div>
-                </div>
-                <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtCargo" name="txtCargo" type="text" placeholder="Cargo" value="@Model.cargo"/>
-                            <label for="txtCargo">Cargo</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtSexo" name="txtSexo" type="text" placeholder="Sexo" value="@Model.sexo"/>
-                            <label for="txtSexo">Sexo</label>
+                            <input class="form-control" id="txtPuesto" name="txtPuesto" type="text" placeholder="Puesto" value="@Model.puesto" />
+                            <label for="txtPuesto">Puesto</label>
                         </div>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtFechaNacimiento" name="txtFechaNacimiento" type="date" placeholder="Fecha de Nacimiento" value="@Model.fechaNacimiento"/>
-                            <label for="txtFechaNacimiento">Fecha de Nacimiento</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtUsuario" name="txtUsuario" type="text" placeholder="Usuario" value="@Model.usuario"/>
+                            <input class="form-control" id="txtUsuario" name="txtUsuario" type="text" placeholder="Usuario" value="@Model.usuario" />
                             <label for="txtUsuario">Usuario</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtContrasena" name="txtContrasena" type="password" placeholder="Contraseña" value="@Model.contrasena"/>
+                            <input class="form-control" id="txtContrasena" name="txtContrasena" type="password" placeholder="Contraseña" value="@Model.contrasena" />
                             <label for="txtContrasena">Contraseña</label>
                         </div>
                     </div>
@@ -115,5 +92,3 @@
         </div>
     </div>
 </div>
-
-}

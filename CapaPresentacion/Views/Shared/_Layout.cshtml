@@ -1,119 +1,109 @@
-﻿@model CapaEntidades.Empleado
+﻿@using CapaEntidades;
 
 @{
-    ViewBag.Title = "Editar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Empleado e = (Empleado)Session["Empleado"];
 }
-
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Insertar Empleado</h1>
-    <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            Registro
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="Ferreteria" content="" />
+    <title>Ferreteria Victor Lozano </title>
+    <link href="~/Bootstrap/css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="@Url.Action("MenuPrincipal","Intranet")">Ferreteria Victor Lozano Vargas</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#!">Cerrar Sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="@Url.Action("MenuPrincipal","Intranet")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Menu Principal
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Estructuración</div>
+                        <a class="nav-link" href="@Url.Action("MenuPrincipal","Intranet")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
+                            Registrar Ferreteria 
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Mantenedores
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Empleados
+                                    <div class="sb-sidenav-collapse-arrow"></div>
+                                </a>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    Clientes
+                                    <div class="sb-sidenav-collapse-arrow"></div>
+                                </a>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    Vehículos
+                                    <div class="sb-sidenav-collapse-arrow"></div>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Iniciaste Sesión como:</div>
+                    @e.nombres @e.apellidos
+                </div>
+            </nav>
         </div>
-        <div class="card-body">
-            <form action="Editar" method="post">
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <input class="form-control" id="txtIdEmpleado" name="txtIdEmpleado" type="text" value="@Model.idEmpleado" hidden />
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtNombres" name="txtNombres" type="text" placeholder="Nombres" value="@Model.nombres" />
-                            <label for="txtNombres">Nombres</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="txtApellidos" name="txtApellidos" type="text" placeholder="Apellidos" value="@Model.apellidos" />
-                            <label for="txtApellidos">Apellidos</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtTipoDocumentoIdentidad" name="txtTipoDocumentoIdentidad" type="text" placeholder="Tipo de Documento Identidad" value="@Model.tipoDocumentoIdentidad" />
-                            <label for="txtTipoDocumentoIdentidad">Tipo de Documento Identidad</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="txtDocumentoIdentidad" name="txtDocumentoIdentidad" type="text" placeholder="Documento Identidad" value="@Model.documentoIdentidad" />
-                            <label for="txtDocumentoIdentidad">Documento Identidad</label>
+        <div id="layoutSidenav_content">
+            <main>
+                @RenderBody()
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Ferreteria Victor lozano Vargas s.a 2024</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terminos &amp; Condiciones</a>
                         </div>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtCelular" name="txtCelular" type="text" placeholder="Celular" value="@Model.celular" />
-                            <label for="txtCelular">Celular</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtCorreo" name="txtCorreo" type="email" placeholder="Correo" value="@Model.correo" />
-                            <label for="txtCorreo">Correo</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtCargo" name="txtCargo" type="text" placeholder="Cargo" value="@Model.cargo" />
-                            <label for="txtCargo">Cargo</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtSexo" name="txtSexo" type="text" placeholder="Sexo" value="@Model.sexo" />
-                            <label for="txtSexo">Sexo</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtFechaNacimiento" name="txtFechaNacimiento" type="date" placeholder="Fecha de Nacimiento" value="@Model.fechaNacimiento" />
-                            <label for="txtFechaNacimiento">Fecha de Nacimiento</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtUsuario" name="txtUsuario" type="text" placeholder="Usuario" value="@Model.usuario" />
-                            <label for="txtUsuario">Usuario</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" id="txtContrasena" name="txtContrasena" type="password" placeholder="Contraseña" value="@Model.contrasena" />
-                            <label for="txtContrasena">Contraseña</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <div class="d-grid">
-                                <a class="btn btn-primary btn-block" href="@Url.Action("Lista","Empleado")">Regresar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                            <div class="d-grid">
-                                <button class="btn btn-primary btn-block">Registrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-            </form>
+            </footer>
         </div>
     </div>
-</div>
-
-}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/Bootstrap/js/scripts.js"></script>
+</body>
+</html>

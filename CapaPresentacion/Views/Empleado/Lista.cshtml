@@ -13,18 +13,17 @@
             Tabla
         </div>
         <div class="card-body">
-            <a class="btn btn-primary btn-block" href="@Url.Action("Insertar","Empleado")">Nuevo empleado</a>
-            <hr />
-            <table id="datatablesSimple">
+            <a class="btn btn-primary mb-3" href="@Url.Action("Insertar", "Empleado")">Nuevo empleado</a>
+            <table id="datatablesSimple" class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Apellidos</th>
                         <th>Nombres</th>
-                        <th>Documento de Identidad</th>
+                        <th>DNI</th>
                         <th>Celular</th>
                         <th>Correo</th>
-                        <th>Cargo</th>
+                        <th>Puesto</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -33,10 +32,10 @@
                         <th>ID</th>
                         <th>Apellidos</th>
                         <th>Nombres</th>
-                        <th>Documento de Identidad</th>
+                        <th>DNI</th>
                         <th>Celular</th>
                         <th>Correo</th>
-                        <th>Cargo</th>
+                        <th>Puesto</th>
                         <th>Opciones</th>
                     </tr>
                 </tfoot>
@@ -47,13 +46,13 @@
                             <td>@item.idEmpleado</td>
                             <td>@item.apellidos</td>
                             <td>@item.nombres</td>
-                            <td>@item.documentoIdentidad</td>
+                            <td>@item.dni</td>
                             <td>@item.celular</td>
                             <td>@item.correo</td>
-                            <td>@item.cargo</td>
+                            <td>@item.puesto</td>
                             <td>
-                                <a class="btn btn-primary btn-block" href="@Url.Action("Editar","Empleado", new { idEmpleado = item.idEmpleado })">Editar</a>
-                                <a class="btn btn-primary btn-block" href="@Url.Action("Eliminar","Empleado", new { idEmpleado = item.idEmpleado })">Eliminar</a>
+                                <a class="btn btn-sm btn-primary" href="@Url.Action("Editar", "Empleado", new { idEmpleado = item.idEmpleado })">Editar</a>
+                                <a class="btn btn-sm btn-danger" href="@Url.Action("Eliminar", "Empleado", new { idEmpleado = item.idEmpleado })">Eliminar</a>
                             </td>
                         </tr>
                     }
@@ -62,4 +61,3 @@
         </div>
     </div>
 </div>
-
